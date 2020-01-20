@@ -1,0 +1,34 @@
+<!-- My first HTML boilerplate -->
+
+<!DOCTYPE html>
+<head>
+	<title>Test Page</title>
+	<style>
+		body {
+			text-align: center;
+			background: url("url");
+			color: black;
+			font-family: calibri;
+		}
+		p {
+			font-size: 22px;
+		}
+		input {
+			border: 0;
+			padding: 10px;
+			font-size: 18px;
+		}
+		input [type="submit"]{
+			background: red;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<img src="url">
+	<h1>First Header</h1>
+	<p>Main paragraph.</p>
+	<input type="email" placeholder="Your email">
+	<input type="submit">
+</body>
+	
