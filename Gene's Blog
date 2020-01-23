@@ -53,11 +53,29 @@
 		padding: 6px;
 		height: 20px;
 	} 
+	.page {
+	 background: #222;
+	 padding: 20px;
+	}
+	.page a {
+	 text-decoration: none;
+	 color: #eee;
+	}
+	.pagelist {
+	 margin: 0 auto;
+	 width: 640px;
+	}
+	.pagenav {
+	 
+	 padding: 6px;
+	 word-spacing: 1;
+	}
 </style>
 </head>
 
 <body>
 	<header>
+	
 	<div class="container">
 		<img class="avatar" src="{PortraitURL-128}">
 		<h1><a href="{BlogURL}">{Title}</a></h1>
@@ -66,6 +84,17 @@
 		{/block:Description}
 	</div>
 	</header>
+	
+	{block:HasPages}
+	 <div class="page">
+	  {block:Pages}
+	    <div class="pagelist">
+	      <a href="{URL}">{Label}</a>
+    	</div>
+	  {/block:Pages}
+	  
+	 </div> 
+	{/block:HasPages}
 	
 	{block:Posts}
 	
@@ -80,9 +109,11 @@
 			<ul class="like-reblog">
 				<li>{LikeButton}</li>
 				<li>{ReblogButton}</li>
-				<li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+				<li>{block:NoteCount}<a href="{PermaLink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+				<li>{block:Date}<a href="{PermaLink}">{TimeAgo}</a>{/block:Date}</li>
 			</ul>
 		</div>
+		{block:PostNotes}{PostNotes}{/block:PostNotes}
 		{/block:Text}
 
 		{block:Photo} 
@@ -92,9 +123,11 @@
 			<ul class="like-reblog">
 				<li>{LikeButton}</li>
 				<li>{ReblogButton}</li>
-				<li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+				<li>{block:NoteCount}<a href="{PermaLink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+				<li>{block:Date}<a href="{PermaLink}">{TimeAgo}</a>{/block:Date}</li>
 			</ul>
 		</div>
+		{block:PostNotes}{PostNotes}{/block:PostNotes}
 		{/block:Photo}
 
 		{block:Quote}
@@ -104,9 +137,11 @@
 			<ul class="like-reblog">
 				<li>{LikeButton}</li>
 				<li>{ReblogButton}</li>
-				<li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+				<li>{block:NoteCount}<a href="{PermaLink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+				<li>{block:Date}<a href="{PermaLink}">{TimeAgo}</a>{/block:Date}</li>
 			</ul>
 		</div>
+		{block:PostNotes}{PostNotes}{/block:PostNotes}
 		{/block:Quote}
 
 		{block:Link}
@@ -116,9 +151,11 @@
 			<ul class="like-reblog">
 				<li>{LikeButton}</li>
 				<li>{ReblogButton}</li>
-				<li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+				<li>{block:NoteCount}<a href="{PermaLink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+				<li>{block:Date}<a href="{PermaLink}">{TimeAgo}</a>{/block:Date}</li>
 			</ul>
 		</div>
+		{block:PostNotes}{PostNotes}{/block:PostNotes}
 		{/block:Link}
 
 		{block:Chat}
@@ -135,9 +172,11 @@
 			<ul class="like-reblog">
 				<li>{LikeButton}</li>
 				<li>{ReblogButton}</li>
-				<li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+				<li>{block:NoteCount}<a href="{PermaLink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+				<li>{block:Date}<a href="{PermaLink}">{TimeAgo}</a>{/block:Date}</li>
 			</ul>
 		</div>
+		{block:PostNotes}{PostNotes}{/block:PostNotes}
 		{/block:Chat}
 
 		{block:Audio}
@@ -147,9 +186,11 @@
 			<ul class="like-reblog">
 				<li>{LikeButton}</li>
 				<li>{ReblogButton}</li>
-				<li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+				<li>{block:NoteCount}<a href="{PermaLink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+				<li>{block:Date}<a href="{PermaLink}">{TimeAgo}</a>{/block:Date}</li>
 			</ul>
 		</div>
+		{block:PostNotes}{PostNotes}{/block:PostNotes}
 		{/block:Audio}
 
 		{block:Video}
@@ -159,11 +200,20 @@
 			<ul class="like-reblog">
 				<li>{LikeButton}</li>
 				<li>{ReblogButton}</li>
-				<li>{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}</li>
+				<li>{block:NoteCount}<a href="{PermaLink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</li>
+				<li>{block:Date}<a href="{PermaLink}">{TimeAgo}</a>{/block:Date}</li>
 			</ul>
 		</div>
+		{block:PostNotes}{PostNotes}{/block:PostNotes}
 		{/block:Video}
 
 	{/block:Posts}
+	
+	{block:Pagination}
+	<div class="pagenav">
+	  {block:PreviousPage}<a href="{PreviousPage}">Previous</a>{/block:PreviousPage}
+	  {block:NextPage}<a href="{NextPage}">Next</a>{/block:NextPage}
+	</div>
+	{/block:Pagination}
 </body>
 </html>
